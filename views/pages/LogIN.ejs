@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<%- include('../partials/headold.ejs') %>
+<%- include('../partials/headlogin') %>
+
+</head>
+<body>
+<%- include('../partials/top.ejs') %>
+
+<!----------------------------------------------Loading Section Start----------------------------------------------------->
+<section id="loading" style="display:none">
+	<div class="lds-heart">
+		<div></div>
+	</div>
+	<div> Retrieving data from BlockChain, please wait... </div>
+</section>
+<!----------------------------------------------Loading Section End-------------------------------------------------------->
+
+<!----------------------------------------------Login Section Start-------------------------------------------------------->
+<section id="description">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sealed feature_header text-center">
+                    <h1 class="feature_title">Login</h1>
+                    <br>The fileds with (<span style="color:red">*</span>) are required.       
+                </div>
+            </div>
+        </div>	
+		<form action="/LogIN" method="POST" class="form-register" style="background:url(images/photo_2019-03-18_16-56-04.jpg);background-position:center;background-repeat:no-repeat;background-size:cover;position: relative;" id="allset" >
+			<div class="form">
+				<div class="ss-item-required">
+					Username: <span style="color:red">*</span> <br>
+					<input type="text" name="username" id="username" value="" placeholder="Insert your Username" required><br>
+					<div id="userMessages"></div> 
+				</div>
+				<div class="ss-item-required">
+					Password: <span style="color:red">*</span> <br>
+					<input type="text" name="password" id="password" value="" placeholder="Insert your Blockchain ID" required><br>
+				</div>
+				<div class="divider"></div>
+				<div class="ss-item-required">
+				<div id="html_element"></div>
+					<input type="submit" name="submit" value="Login"/>
+				</div>
+			</div>
+		</form>
+			<div id="loginMessages"></div>
+			<p><a href="SignUP">Not a member? Sign up now!</a></p>  
+	</div>
+</section> 
+<!----------------------------------------------Login Section End-------------------------------------------------------->
+
+<!-------------------------------------------Data Form Start--------------------------------------------->
+<section id="databack" style="display:none">
+	<span id="resText" style="display:none;">Oops... Something went wrong. Make sure you have typed your Unique ID correctly.</span>
+	<form class="form-register" style="background:url(images/photo_2019-03-18_16-55-53_B.jpg);background-position:center;background-repeat:no-repeat;background-size:cover;position: relative;">
+		<div class="form" id="dataform" style="display:none;">
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Surname: <span name="Surname" id="surname" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Name: <span name="Name" id="name" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-not-required" style="color: brown; font-size: 18px;">
+				Middle Name: <span name="MiddleName" id="middleName"style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Sex: <span name="Sex" id="sexid"style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Date Of Birth: <span  name="DateofBirth" id="birth" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Social Security Registration Number: <span name="Amka" id="amka"style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Address: <span name="Address" id="adress" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Phone Number: <span name="MobilePhone" id="phone" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Emergency Contact Phone Number: <span name="EmergencyNumber" id="emergencyPhone" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Personal Doctor's Phone Number: <span name="DoctorNumber" id="doctorPhone" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Personal Photo: <span name="Photo" id="photo"style="color:blue;font-size: 18px;"></span> <br>
+				<img id="showPhoto" src="" onerror="this.onerror=null" width='85' height='85'  />
+			</div>	
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Life Threatening Medical Condition:<span name="MedicalCondition" id="medicalCondition" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Blood Group: <span name="BloodGroup" id="bloodType" style="color:blue;font-size: 18px;"></span>  <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Essential Medications:<span name="EssentialMedications" id="medication" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Allergies:<span name="Allergies" id="allergies" style="color:blue;font-size: 18px;"></span>  <br>
+			</div>
+			<div class="ss-item-required" style="color: brown; font-size: 18px;">
+				Organ Donor:<span name="OrganDonor" id="organDonor" style="color:blue;font-size: 18px;"></span> <br>
+			</div>
+		</div>
+	</form>
+</section>
+
+<!-------------------------------------------Data Form End---------------------------------------------------->
+
+
+
+<script type="text/javascript">  
+/*
+let fm = new Fortmatic('pk_test_B44E652DC8B8B022');
+
+jQuery(function ($) {
+//form submit handler
+
+	$('#allset').submit(function (e) {
+		//prevents reloading
+		e.preventDefault();
+		//Defines data taken from the fields
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		//check if the fields are empty
+		if(username !="" && password !=""){
+			form1 ="username="+username+"&password="+password;
+			//The ajax GET query to the DB
+			$.ajax({
+				url: '/api/users/'+form1, 
+				type: "GET",
+				dataType: 'json',
+				//Success if credentials exist in DB
+				success: function (e) {
+					//if e>0 then the querry is successful
+					if (e.length > 0 ){
+						//Serves data in the corresponding fields
+					document.getElementsByTagName("span").Surname.innerHTML = e[0].surname;
+					document.getElementsByTagName("span").Name.innerHTML = e[0].name;
+					document.getElementsByTagName("span").MiddleName.innerHTML = e[0].middleName;
+					document.getElementsByTagName("span").Sex.innerHTML = e[0].sexid;
+					document.getElementsByTagName("span").DateofBirth.innerHTML = e[0].birth;
+					document.getElementsByTagName("span").Address.innerHTML = e[0].address;
+					document.getElementsByTagName("span").MobilePhone.innerHTML = e[0].phone;
+					document.getElementsByTagName("span").EmergencyNumber.innerHTML = e[0].emergencyPhone;
+					var photoName = e[0].photo;
+					
+					if((e[0].photo.status==undefined)){
+						
+						var id=e[0].sexid;
+						if (id=="Male")
+						{
+							document.getElementById("showPhoto").src =  '/uploads/' +'Male.jpg';
+						}
+						else if(id=="Female"){
+							document.getElementById("showPhoto").src =  '/uploads/' +'Female.jpg';
+						}
+						
+					}else{
+						
+						document.getElementById('showPhoto').src = '/uploads/' +photoName;
+					}
+					
+					document.getElementsByTagName("span").DoctorNumber.innerHTML = e[0].doctorsPhone;
+					document.getElementsByTagName("span").MedicalCondition.innerHTML = e[0].medicalCondition;
+					document.getElementsByTagName("span").BloodGroup.innerHTML = e[0].bloodType;
+					document.getElementsByTagName("span").EssentialMedications.innerHTML = e[0].medication;
+					document.getElementsByTagName("span").Allergies.innerHTML = e[0].allergies;
+					document.getElementsByTagName("span").OrganDonor.innerHTML = e[0].organDonor;
+                    //Display changes
+                    document.getElementById("databack").style="display:block;";
+                    document.getElementById("dataform").style="display:block;";
+                    document.getElementById("description").style="display:none;";	
+					}
+					// if e<=0 then the querry is wrong 
+					else {
+						data = e;
+						window.alert("The data do not exist within the Blockchain");
+					}
+				},
+				//Error if something goes wrong with the querry
+				error:function(e){
+					window.alert("Error!");
+				}
+			});
+		}
+	})		
+});
+*/
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>  
+		<%- include('../partials/headsign') %>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+<body>
+<!----------------------------------------------Frontend HTML START-------------------------------------------------------->
+	<%- include('../partials/headold.ejs') %>
+	<%- include('../partials/top') %>
+
+	<!------------------------------------------Form Section START---------------------------------------------->
+	<section id="description" style="display:block">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="signup" class="sealed feature_header text-center">
+						<h1 class="feature_title">Sign Up</h1>
+						<br>The fields with (<span style="color:red">*</span>) are required
+					</div>
+				</div>
+			</div>
+			<form action="/SignUP" method="POST" class="form-register" style="background:url(images/photo_2019-03-18_16-55-53.jpg); background-position: center; background-repeat: no-repeat; background-size: cover; position: relative;" enctype="multipart/form-data"  >
+				<div class="form">	
+					<div class="ss-item-required" id="usernameDiv">
+						Username: <span style="color:red">*</span> <br>
+						<input type="text" name="Username" id="username" value="" required><br>
+					</div>
+					<div class="ss-item-required">
+						Email: <span style="color:red; display: inline-block;">*</span> <br>
+						<input type="text" name="Email" id="email" value="" required><br>
+					</div>
+					<div class="ss-item-required">
+						Surname:  <br>
+						<input type="text" name="Surname" id="surname" value="" ><br>
+					</div>
+					<div class="ss-item-required">
+						Name: <br>
+						<input type="text" name="Name" id="name" value="" ><br>
+					</div>
+					<div class="ss-item-not-required">
+						Middle Name:  <br>
+						<input type="text" name="Middle_Name" id="middleName" value=""><br>
+					</div>
+					<div class="ss-item-required">
+						Sex: <br>
+						<select name="Sex" id="sexid" value="" >
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="Other">Other</option>
+						</select>
+					</div>
+					<div class="ss-item-required">
+						Date Of Birth: <br>
+						<input type="date" name="Date_of_Birth" id="birth" > <br>
+					</div>
+					<div class="ss-item-required">
+						Social Security Registration Number: <br>
+						<input type="text" name="Amka" id="amka" onkeypress="() => {return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57}" value="" > <br>
+					</div>
+					<div class="ss-item-required">
+						Address:  <br>
+						<input type="text" name="Address" id="address" value="" > <br>
+					</div>
+					<div class="ss-item-required">
+						Phone Number:<br>
+						<input type="text" name="Phone_Number" id="phone" pattern="\d{10}" title="10 digits are required." onkeypress=" () => {return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57}" value="" placeholder="Enter your Phone"  minlength="10" maxlength="10" ><br>
+						<div id="phoneMessages"></div>
+					</div>
+					<div class="ss-item-required">
+						Emergency Contact Phone Number:  <br>
+						<input type="text" name="Emergency_Contact_Phone_Number" id="emergencyPhone" pattern="\d{10}" title="10 digits are required." onkeypress="() => {return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57}" value="" placeholder="Enter your Emergency Phone" minlength="10" maxlength="10" > <br>
+					</div>
+					<div class="ss-item-required">
+						Personal Doctor's Phone Number: <br>
+						<input type="text" name="Personal_Doctor_Phone_Number" id="doctorPhone" pattern="\d{10}" title="10 digits are required." onkeypress=" () => {return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode > 48 && event.charCode <= 57}" value="" placeholder="Enter your Doctor's Phone"  minlength="10" maxlength="10" > <br>
+					</div>
+					<div class="ss-item-required">
+						Personal Photo: 			
+						<input type="file" id = "file" name = "file"/>
+						<img src="/images/pngwing.com.png" id='photo' alt="image" height=50 width=50>
+					</div>
+					<div class="ss-item-required">
+						Life Threatening Medical Condition: <em>(If none, please state it) </em> <br>
+						<input type="text" name="Life_Threatening_Medical_Condition" id="medicalCondition" value="" > <br>
+					</div>
+					<div class="ss-item-required">
+						Blood Group:  <br>
+						<select name="Blood_Group" id="bloodType" value="">
+						    <option value="-">-</option>
+							<option value="A+">A+</option>
+							<option value="A-">A-</option>
+							<option value="B+">B+</option>
+							<option value="B-">B-</option>
+							<option value="0+">0+</option>
+							<option value="0-">0-</option>
+							<option value="AB+">AB+</option>
+							<option value="AB-">AB-</option>
+						</select>
+					</div>
+					<div class="ss-item-required">
+						Essential Medications: <em>(If none, please state it) </em> <br>
+						<input type="text" name="Essential_Medications" id="medication" value="" > <br>
+					</div>
+					<div class="ss-item-required">
+						Allergies: <em>(If none, please state it)</em>  <br>
+						<textarea rows="4" cols="40" name="Allergies" id="allergies" value="" ></textarea> <br>
+					</div>
+					<div class="ss-item-required">
+						Organ Donor: <em>(Yes-No,Please Specify Details)</em>  <br>
+						<textarea rows="4" cols="40" name="Organ_Donor" id="organDonor" value="" ></textarea> <br>
+					</div>
+					<br>
+					<label><input type="checkbox" name="checkbox" class="check1" /> I have read and agreed to the Terms and Conditions. <span style="color:red">*</span></label><br>
+					<label><input type="checkbox" name="checkbox" class="check2" /> I have read and agreed to the Privacy Policy. <span style="color:red">*</span></label><br>
+					<!--
+					<button id="paypalPay"> 
+						Proceed to wristband
+					</button> 
+					-->
+					<button type="submit">
+						Proceed to Wristband
+					</button>
+				</div>
+			</form>	
+		</div>	
+		<div id="member"><p><a href="LogIN">If you are a member? Please login!</a></p>     </div>
+	</section>
+	<!------------------------------------------Form Section End--------------------------------------------------->
+
+<!---------------------------------------------- Javascript START------------------------------------------------------->
+
+
+</body>
+</html>
